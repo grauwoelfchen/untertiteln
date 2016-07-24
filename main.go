@@ -1,7 +1,8 @@
 package main
 
 import (
-	"io"
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -11,8 +12,25 @@ import (
 )
 
 const scope string = "https://www.googleapis.com/auth/cloud-platform"
+
 const url string = "https://speech.googleapis.com"
 const path string = "/v1beta1/speech:syncrecognize"
+
+// Alternative is object holds transcribed text
+type Alternative struct {
+	Transcript string
+	Confidence float64
+}
+
+// Result contains Alternative entries
+type Result struct {
+	Alternatives []Alternative
+}
+
+// Response contains results
+type Response struct {
+	Results []Result `json:results`
+}
 
 func main() {
 	credentials := os.Getenv("GOOGLE_APPLICATION_CREDENTIALS")
@@ -42,8 +60,12 @@ func main() {
 		log.Fatal(res.Header)
 		return
 	}
-	_, err = io.Copy(os.Stdout, res.Body)
+
+	decoder := json.NewDecoder(res.Body)
+	var response Response
+	err = decoder.Decode(&response)
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println(response.Results[0].Alternatives[0].Transcript)
 }

@@ -23,6 +23,7 @@ The console application prints Untertitels (subtitle in German) from input.
 ```zsh
 % cd /path/to/untertiteln
 % go run ./main.go
+how old is the Brooklyn Bridge
 ```
 
 ## Link
