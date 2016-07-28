@@ -26,11 +26,21 @@ The console application prints Untertitels (subtitle in German) from input.
 how old is the Brooklyn Bridge
 ```
 
-## Link
+## Development
 
-* https://cloud.google.com/speech/docs/best-practices
-* https://github.com/GoogleCloudPlatform/nodejs-docs-samples/tree/master/speech
+### protobuf
 
+* [dev-libs/protobuf](https://github.com/google/protobuf)
+* [protoc,protoc-gen-go](https://github.com/golang/protobuf)
+
+```
+# install protoc packages
+% go get -u -v github.com/golang/protobuf/protoc-gen-go
+% go get -u -v github.com/golang/protobuf/protoc
+
+# generate *.pb.go
+% protoc --go_out=plugins=grpc:. ./proto/*.proto
+```
 
 ## License
 

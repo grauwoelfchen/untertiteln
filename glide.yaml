@@ -9,3 +9,5 @@ import:
 - package: google.golang.org/api
   subpackages:
   - compute/v1
+- package: google.golang.org/grpc
+  version: ^1.0.0

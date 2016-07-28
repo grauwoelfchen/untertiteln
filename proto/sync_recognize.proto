@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package google.cloud.speech.v1beta1;
+
+service Speech {
+  rpc SyncRecognize(SyncRecognizeRequest) returns (SyncRecognizeResponse);
+}
+
+
+// Request
+
+message SpeechContext {
+  repeated string phrases = 1;
+}
+
+message RecognitionConfig {
+  enum AudioEncoding {
+    ENCODING_UNSPECIFIED = 0;
+    LINEAR16 = 1;
+    FLAC = 2;
+    MULAW = 3;
+    AMR = 4;
+    AMR_WB = 5;
+  }
+  AudioEncoding encoding = 1;
+  int32 sample_rate = 2;
+  string language_code = 3;
+  int32 max_alternatives = 4;
+  bool profanity_filter = 5;
+  SpeechContext speech_context = 6;
+}
+
+message RecognitionAudio {
+  oneof audio_source {
+    bytes content = 1;
+    string uri = 2;
+  }
+}
+
+message SyncRecognizeRequest {
+  RecognitionConfig config = 1;
+  RecognitionAudio audio = 2;
+}
+
+
+// Response
+
+message SpeechRecognitionAlternative {
+  string transcript = 1;
+  float  confidence = 2;
+}
+
+message SpeechRecognitionResult {
+  repeated SpeechRecognitionAlternative alternatives = 1;
+}
+
+message SyncRecognizeResponse {
+  repeated SpeechRecognitionResult results = 2;
+}
