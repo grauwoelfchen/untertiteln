@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package google.rpc;
+
+import "google/protobuf/any.proto";
+
+// https://cloud.google.com/speech/reference/rpc/google.rpc \
+//   #google.rpc.Status
+message Status {
+  int32 code = 1;
+  string message = 2;
+  repeated google.protobuf.Any details = 3;
+}

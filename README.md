@@ -8,7 +8,7 @@ The console application prints Untertitels (subtitle in German) from input.
 % go get github.com/Masterminds/glide
 % glide install
 
-# setup environment variables (z.B. using autoenv etc.)
+: setup environment variables (z.B. using autoenv etc.)
 % cp .env.sample .env
 ```
 
@@ -33,13 +33,13 @@ how old is the Brooklyn Bridge
 * [dev-libs/protobuf](https://github.com/google/protobuf)
 * [protoc,protoc-gen-go](https://github.com/golang/protobuf)
 
-```
-# install protoc packages
+```zsh
+: install protoc packages
 % go get -u -v github.com/golang/protobuf/protoc-gen-go
 % go get -u -v github.com/golang/protobuf/protoc
 
-# generate *.pb.go
-% protoc --go_out=plugins=grpc:. ./proto/*.proto
+: generate *.pb.go
+% protoc --go_out=plugins=grpc:. ./proto/{streaming|sync}_recognize.proto
 ```
 
 ## License
