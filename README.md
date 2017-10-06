@@ -1,6 +1,9 @@
 # Untertiteln
 
+`[ʊntəriːtəln]`
+
 The console application prints Untertitels (subtitle in German) from input.
+
 
 ## Install
 
@@ -11,6 +14,7 @@ The console application prints Untertitels (subtitle in German) from input.
 : setup environment variables (z.B. using autoenv etc.)
 % cp .env.sample .env
 ```
+
 
 ## Requirements
 
@@ -25,6 +29,7 @@ The console application prints Untertitels (subtitle in German) from input.
 % go run ./main.go
 how old is the Brooklyn Bridge
 ```
+
 
 ## Development
 
@@ -42,17 +47,15 @@ how old is the Brooklyn Bridge
 % protoc --go_out=plugins=grpc:. ./proto/{streaming|sync}_recognize.proto
 ```
 
+
 ## License
 
-GNU GPL v3
+Copyright (c) 2016-2017 Yasuhiro Asaka
 
-Untertiteln
-Copyright (c) 2016 Yasuhiro Asaka
-
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
+This program is free software:  
+you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
@@ -61,4 +64,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+See [LICENSE](LICENSE). (`GPL-3.0`)
